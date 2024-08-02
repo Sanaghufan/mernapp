@@ -18,7 +18,7 @@ async function mongoDB() {
     if (data.length === 0) {
       console.log("No data found in collection");
     } else {
-      console.log("Data fetched:", data);
+      console.log("Data fetched:");
     }
   } catch (error) {
     console.error("Error connecting to the database:", error);

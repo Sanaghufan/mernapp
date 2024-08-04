@@ -4,7 +4,7 @@ const mongoUrl =
 
 async function mongoDB() {
   try {
-    await mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(mongoUrl, { useNewUrlParser: true});
     console.log("Connected to the database");
 
     const fetched_data = mongoose.connection.db.collection("food-items");

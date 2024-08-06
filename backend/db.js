@@ -18,7 +18,21 @@ async function mongoDB() {
     if (data.length === 0) {
       console.log("No data found in collection");
     } else {
-      console.log("Data fetched:");
+     
+     const foodCategory =  mongoose.connection.db.collection("foodCategory")
+     if(!foodCategory){
+      console.log("Collection not found")
+      return
+     }
+    const catData = await  foodCategory.find({}).toArray();
+    if(catData.length == 0){
+      console.log("No data found");
+    }
+    else{
+      global.foodCategory = catData;
+      global.food_items = data;
+    }
+   
     }
   } catch (error) {
     console.error("Error connecting to the database:", error);
